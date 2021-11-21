@@ -4,17 +4,6 @@ app = Flask(__name__)
 app.secret_key = "mega secret"
 
 
-def createContext():
-    data = type('obj', (object,),
-                {
-                    'userInput': ' empty',
-                    'indx': 0,
-                    'step': 0,
-                    'array': []
-                })
-    return data
-
-
 def get_step_data(arr, i, step):
     data = type('obj', (object,), {})
     data.nextIndex = i + 1
@@ -40,7 +29,7 @@ def start():
     session["userInput"] = input
     arr = list(map(int, input.split()))
     session["currentArray"] = arr
-    return nextStep(0, 0)
+    return nextStep()
 
     # data = do_step(arr, 0, 0)
     #
@@ -55,11 +44,11 @@ def start():
 
 @app.route('/step')
 def nextStep():
-    index = int(request.args['indx'])
-    step = int(request.args['step'])
+    indx = int(request.args.get('indx', 0))
+    step = int(request.args.get('step', 0))
     arr = session["currentArray"]
-    data = get_step_data(arr, index, step)
-    ctx = createContext()
+    data = get_step_data(arr, indx, step)
+    ctx = type('obj', (object,), {})
     ctx.userInput = session["userInput"]
     ctx.array = data.array
     ctx.indx = data.nextIndex
