@@ -8,7 +8,7 @@ app.secret_key = "mega secret"
 def get_step_data(arr, i, step):
     data = type('obj', (object,), {})
     data.nextIndex = i + 1
-    data.nextStep = step + 1  # не может быть > 2
+    data.nextStep = step + 1  # if > 2 then i+1 step =0
     data.array = arr
     data.description = " Какое то описание ..."
     data.colors = {i: "red", i + 1: "red"}
@@ -38,8 +38,10 @@ def start():
 def nextStep():
     indx = int(request.args.get('indx', 0))
     step = int(request.args.get('step', 0))
+
     arr = session["currentArray"]
     data = get_step_data(arr, indx, step)
+    session["currentArray"] = data.array
 
     ctx = type('obj', (object,), {})
     ctx.userInput = session["userInput"]
