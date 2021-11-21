@@ -1,0 +1,21 @@
+{% extends  "base.html" %}
+
+{% block pageTitle %}
+Демо сортировки
+{% endblock %}
+
+{% block content %}
+<div>Вы ввели:</div>
+<div>{{ ctx.userInput }}</div>
+
+
+<div>Здесь будет демо каждого шага: </div>
+<di> {{ ctx.array }} </di>
+
+<form action="/step">
+  <input type="text"  name="indx" hidden value="{{ ctx.indx }}">
+  <input type="text"  name="step" hidden value="{{ ctx.step }}">
+  <input type="submit" value="Next step">
+</form>
+
+{% endblock %}

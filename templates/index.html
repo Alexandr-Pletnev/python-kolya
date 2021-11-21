@@ -1,9 +1,14 @@
 {% extends  "base.html" %}
 
 {% block pageTitle %}
-Первая страница
+Главная страница
 {% endblock %}
 
 {% block content %}
-	<div>Здесь код, который будет добавлен</div>
+<div>Введите строку с цифрами для сортировки</div>
+<form action="/start">
+  <label for="userInput">Numbers:</label>
+  <input type="text" id="userInput" name="input">
+  <input type="submit" value="Submit">
+</form>
 {% endblock %}
