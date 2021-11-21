@@ -9,15 +9,27 @@
 <div>{{ ctx.userInput }}</div>
 <br>
 
-<div>Значение массива: </div>
-<div> {{ ctx.data.array }} </div>
+<div>Текущее состояние массива:</div>
+<div> {{ ctx.data.array }}</div>
+<div>{{ ctx.data.colors }}</div>
 <br>
-<div> {{ ctx.data.description }} </div>
+{% for n in ctx.data.array  %}
+    {% if  loop.index0 in ctx.data.colors %}
+        {% set color = ctx.data.colors[loop.index0] %}
+        <span style="color:{{color}}">{{n}}</span>
+    {% else %}
+        <span>{{n}}</span>
+    {%endif%}
+{% endfor %}
 <br>
+<br>
+<div> {{ ctx.data.description }}</div>
+<br>
+
 <form action="/step">
-  <input type="text"  name="indx" hidden value="{{ ctx.data.nextIndex }}">
-  <input type="text"  name="step" hidden value="{{ ctx.data.nextStep }}">
-  <input type="submit" value="Next step">
+    <input type="text" name="indx" hidden value="{{ ctx.data.nextIndex }}">
+    <input type="text" name="step" hidden value="{{ ctx.data.nextStep }}">
+    <input type="submit" value="Next step">
 </form>
 
 {% endblock %}

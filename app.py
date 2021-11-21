@@ -1,5 +1,6 @@
 from flask import Flask, render_template, request, session
 
+
 app = Flask(__name__)
 app.secret_key = "mega secret"
 
@@ -10,6 +11,7 @@ def get_step_data(arr, i, step):
     data.nextStep = step + 1  # не может быть > 2
     data.array = arr
     data.description = " Какое то описание ..."
+    data.colors = {i: "red", i + 1: "red"}
     return data
 
 
