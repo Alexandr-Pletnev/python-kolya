@@ -13,6 +13,14 @@ def hello_world():
 def index():
     return render_template("index.html")
 
+@app.route('/start/<string:input>')
+def start(input):
+    return render_template("index.html")
+
+@app.route('/step/<int:i>/<int:k>/<int:step>/<array:arr>')
+def doStep(i, k, step, arr):
+    return render_template("index.html")
+
 
 if __name__ == "__main__":
     app.run(debug=True)
