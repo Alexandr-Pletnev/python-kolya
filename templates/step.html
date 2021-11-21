@@ -7,14 +7,16 @@
 {% block content %}
 <div>Вы ввели:</div>
 <div>{{ ctx.userInput }}</div>
+<br>
 
-
-<div>Здесь будет демо каждого шага: </div>
-<di> {{ ctx.array }} </di>
-
+<div>Значение массива: </div>
+<div> {{ ctx.data.array }} </div>
+<br>
+<div> {{ ctx.data.description }} </div>
+<br>
 <form action="/step">
-  <input type="text"  name="indx" hidden value="{{ ctx.indx }}">
-  <input type="text"  name="step" hidden value="{{ ctx.step }}">
+  <input type="text"  name="indx" hidden value="{{ ctx.data.nextIndex }}">
+  <input type="text"  name="step" hidden value="{{ ctx.data.nextStep }}">
   <input type="submit" value="Next step">
 </form>
 
