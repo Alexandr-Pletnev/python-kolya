@@ -1,4 +1,4 @@
-# Demo Kolya Pletnev (scool 1580)
+# Demo Kolya Pletnev (school 1580)
 
 
 To start project repeat the follow instructions: 
@@ -13,7 +13,7 @@ To start project repeat the follow instructions:
   - cd c:\\_py\kolya-demo 
   - git clone https://github.com/Alexandr-Pletnev/python-kolya.git
 - open project in PyCharm
-- install all dependencies: 
+- install all dependencies:
   - pip install requirements.txt
 - run app.py: 
   - python app.py
