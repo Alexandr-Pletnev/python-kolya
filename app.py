@@ -7,11 +7,27 @@ app.secret_key = "mega secret"
 
 def get_step_data(arr, i, step):
     data = type('obj', (object,), {})
-    data.nextIndex = i + 1
-    data.nextStep = step + 1  # if > 2 then i+1 step =0
     data.array = arr
-    data.description = " Какое то описание ..."
-    data.colors = {i: "green", i + 1: "green"}
+    if data.nextStep == 0:
+        data.description = "Cравниваем чисал: " + str(data.array[i-1]) + str(data.array[i])
+        data.colors = {i-1: "indigo-400", i: "indigo-400"}
+    elif data.nextStep == 1:
+        if data.array[i-1] < data.array[i]:
+            data.description = "Так как " + str(data.array[i-1]) + " < " + +str(data.array[i]) + "не меняем местами"
+            data.colors = {i: "indigo-400", i + 1: "orange-500"}
+        else:
+            data.description = "Так как " + str(data.array[i - 1]) + " > " + +str(data.array[i]) + "меняем местами"
+            data.colors = {i: "orange-500", i + 1: "indigo-400"}
+    elif data.nextStep == 2:
+        if data.array[i-1] < data.array[i]:
+            data.array[i-1], data.array[i] = data.array[i], data.array[i]
+            data.colors = {i: "black", i + 1: "black"}
+    else:
+        data.nextIndex = i + 1
+        data.nextStep = 0
+    data.nextStep = step + 1
+    # data.description = " Какое то описание ..."
+    # data.colors = {i: "indigo-400", i + 1: "indigo-400"}
     return data
 
 
@@ -36,7 +52,7 @@ def start():
 
 @app.route('/step')
 def nextStep():
-    indx = int(request.args.get('indx', 0))
+    indx = int(request.args.get('indx', 1))
     step = int(request.args.get('step', 0))
 
     arr = session["currentArray"]

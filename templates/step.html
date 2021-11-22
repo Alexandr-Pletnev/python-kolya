@@ -9,11 +9,11 @@
 <div>{{ ctx.userInput }}</div>
 <br>
 
-<div>Текущее состояние массива:</div>
+<div>Текущее <сос></сос>тояние массива:</div>
 <div> {{ ctx.data.array }}</div>
 <div>{{ ctx.data.colors }}</div>
 <br>
-<h1>
+<h2>
     {% for n in ctx.data.array %}
     {% if loop.index0 in ctx.data.colors %}
     {% set color = ctx.data.colors[loop.index0] %}
@@ -22,7 +22,7 @@
     <span>{{n}}</span>
     {%endif%}
     {% endfor %}
-</h1>
+</h2>
 <br>
 <br>
 <div> {{ ctx.data.description }}</div>
