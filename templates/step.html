@@ -13,14 +13,16 @@
 <div> {{ ctx.data.array }}</div>
 <div>{{ ctx.data.colors }}</div>
 <br>
-{% for n in ctx.data.array  %}
-    {% if  loop.index0 in ctx.data.colors %}
-        {% set color = ctx.data.colors[loop.index0] %}
-        <span style="color:{{color}}">{{n}}</span>
+<h1>
+    {% for n in ctx.data.array %}
+    {% if loop.index0 in ctx.data.colors %}
+    {% set color = ctx.data.colors[loop.index0] %}
+    <span style="color:{{color}}">{{n}}</span>
     {% else %}
-        <span>{{n}}</span>
+    <span>{{n}}</span>
     {%endif%}
-{% endfor %}
+    {% endfor %}
+</h1>
 <br>
 <br>
 <div> {{ ctx.data.description }}</div>

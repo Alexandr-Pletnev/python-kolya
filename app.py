@@ -11,7 +11,7 @@ def get_step_data(arr, i, step):
     data.nextStep = step + 1  # if > 2 then i+1 step =0
     data.array = arr
     data.description = " Какое то описание ..."
-    data.colors = {i: "red", i + 1: "red"}
+    data.colors = {i: "green", i + 1: "green"}
     return data
 
 
@@ -53,3 +53,6 @@ def nextStep():
 
 if __name__ == "__main__":
     app.run(debug=True)
+
+
+
