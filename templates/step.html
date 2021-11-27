@@ -5,11 +5,11 @@
 {% endblock %}
 
 {% block content %}
-<div>Вы ввели:</div>
-<div>{{ ctx.userInput }}</div>
-<br>
+<!--<div>Вы ввели:</div>-->
+<!--<div>{{ ctx.userInput }}</div>-->
+<!--<br>-->
 
-<div>Текущее <сос></сос>тояние массива:</div>
+<div>Текущее состояние массива:</div>
 <div> {{ ctx.data.array }}</div>
 <div>{{ ctx.data.colors }}</div>
 <br>
@@ -31,6 +31,7 @@
 <form action="/step">
     <input type="text" name="indx" hidden value="{{ ctx.data.nextIndex }}">
     <input type="text" name="step" hidden value="{{ ctx.data.nextStep }}">
+    <input type="text" name="kndx" hidden value="{{ ctx.data.nextIndexK }}">
     <input type="submit" value="Next step">
 </form>
 

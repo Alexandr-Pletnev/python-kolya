@@ -1,5 +1,4 @@
-# Demo Kolya Pletnev (school 1580)
-
+#Demo Kolya Pletnev (school 1580)
 
 To start project repeat the follow instructions: 
 
