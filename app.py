@@ -35,8 +35,8 @@ def get_step_data(arr, i, k, step):
                 i += 1
                 step = -1
         else:
-            data.description = str(arr[i]) + " максмиальное. 'Поднимаем' на вверх"
-            data.colors = {i: 'indigo-600'}
+            data.description = str(arr[i-1]) + " максмиальное. 'Поднимаем' на вверх"
+            data.colors = {i-1: 'red'}
             i = 1
             k += 1
     data.nextIndexK = k

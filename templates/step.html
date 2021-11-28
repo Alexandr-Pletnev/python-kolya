@@ -1,19 +1,21 @@
 {% extends  "base.html" %}
 
 {% block pageTitle %}
-Демо сортировки
+Lab-Cимфония
 {% endblock %}
 
 {% block content %}
-<!--<div>Вы ввели:</div>-->
-<!--<div>{{ ctx.userInput }}</div>-->
-<!--<br>-->
-
-<div>Текущее состояние массива:</div>
-<div> {{ ctx.data.array }}</div>
-<div>{{ ctx.data.colors }}</div>
 <br>
-<h2>
+<h3>
+    <div>Сортировка пузыриком:</div>
+</h3>
+<br>
+
+<!--<div>Текущее состояние массива:</div>-->
+<!--<div> {{ ctx.data.array }}</div>-->
+<!--<div>{{ ctx.data.colors }}</div>-->
+<br>
+<h3>
     {% for n in ctx.data.array %}
     {% if loop.index0 in ctx.data.colors %}
     {% set color = ctx.data.colors[loop.index0] %}
@@ -22,17 +24,17 @@
     <span>{{n}}</span>
     {%endif%}
     {% endfor %}
-</h2>
+</h3>
 <br>
 <br>
-<div> {{ ctx.data.description }}</div>
+<h5> {{ ctx.data.description }}</h5>
 <br>
 
 <form action="/step">
     <input type="text" name="indx" hidden value="{{ ctx.data.nextIndex }}">
     <input type="text" name="step" hidden value="{{ ctx.data.nextStep }}">
     <input type="text" name="kndx" hidden value="{{ ctx.data.nextIndexK }}">
-    <input type="submit" value="Next step">
+    <input type="submit" value="Следущий шаг">
 </form>
 
 {% endblock %}
